@@ -154,7 +154,7 @@ public class CaveniaConfig
 		propOrder.add(prop.getName());
 		monsterSpawn = prop.getInt(monsterSpawn);
 
-		prop = config.get(category, "caveBrightness", 0.125D);
+		prop = config.get(category, "caveBrightness", 0.125D * 3);
 		prop.setMinValue(0.0D).setMaxValue(1.0D);
 		prop.setLanguageKey(Config.LANG_KEY + category + "." + prop.getName());
 		comment = Cavern.proxy.translate(prop.getLanguageKey() + ".tooltip");

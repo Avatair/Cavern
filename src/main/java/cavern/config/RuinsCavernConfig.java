@@ -95,7 +95,7 @@ public class RuinsCavernConfig
 		propOrder.add(prop.getName());
 		bonusChest = prop.getDouble(bonusChest);
 
-		prop = config.get(category, "caveBrightness", 0.075D);
+		prop = config.get(category, "caveBrightness", 0.075D * 3);
 		prop.setMinValue(0.0D).setMaxValue(1.0D);
 		prop.setLanguageKey(Config.LANG_KEY + category + "." + prop.getName());
 		comment = Cavern.proxy.translate(prop.getLanguageKey() + ".tooltip");
