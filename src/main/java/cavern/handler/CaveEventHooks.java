@@ -79,7 +79,6 @@ import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
-import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
@@ -651,24 +650,24 @@ public class CaveEventHooks
 		}
 	}
 
-	@SubscribeEvent
-	public void onFurnaceFuelBurnTime(FurnaceFuelBurnTimeEvent event)
-	{
-		ItemStack stack = event.getItemStack();
-		Block block = Block.getBlockFromItem(stack.getItem());
-
-		if (block == null)
-		{
-			return;
-		}
-
-		if (block instanceof BlockLogPerverted)
-		{
-			event.setBurnTime(100);
-		}
-		else if (block instanceof BlockLeavesPerverted || block instanceof BlockSaplingPerverted)
-		{
-			event.setBurnTime(35);
-		}
-	}
+//	@SubscribeEvent
+//	public void onFurnaceFuelBurnTime(FurnaceFuelBurnTimeEvent event)
+//	{
+//		ItemStack stack = event.getItemStack();
+//		Block block = Block.getBlockFromItem(stack.getItem());
+//
+//		if (block == null)
+//		{
+//			return;
+//		}
+//
+//		if (block instanceof BlockLogPerverted)
+//		{
+//			event.setBurnTime(100);
+//		}
+//		else if (block instanceof BlockLeavesPerverted || block instanceof BlockSaplingPerverted)
+//		{
+//			event.setBurnTime(35);
+//		}
+//	}
 }

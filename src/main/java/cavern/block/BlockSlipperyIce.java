@@ -16,6 +16,7 @@ public class BlockSlipperyIce extends BlockPackedIce
 	public BlockSlipperyIce()
 	{
 		super();
+		this.slipperiness = 1.05F;
 		this.setUnlocalizedName("slipperyIce");
 		this.setSoundType(SoundType.GLASS);
 		this.setCreativeTab(Cavern.TAB_CAVERN);
@@ -32,9 +33,9 @@ public class BlockSlipperyIce extends BlockPackedIce
 		}
 	}
 
-	@Override
-	public float getSlipperiness(IBlockState state, IBlockAccess world, BlockPos pos, Entity entity)
-	{
-		return 1.05F;
-	}
+//	@Override
+//	public float getSlipperiness(IBlockState state, IBlockAccess world, BlockPos pos, Entity entity)
+//	{
+//		return 1.05F;
+//	}
 }
