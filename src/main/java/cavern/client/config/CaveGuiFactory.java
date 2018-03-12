@@ -13,6 +13,12 @@ public class CaveGuiFactory implements IModGuiFactory
 {
 	@Override
 	public void initialize(Minecraft mc) {}
+	
+ 	@Override
+ 	public Class<? extends GuiScreen> mainConfigGuiClass()
+ 	{
+		return null;
+ 	}
 
 	@Override
 	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories()
@@ -30,5 +36,10 @@ public class CaveGuiFactory implements IModGuiFactory
 	public GuiScreen createConfigGui(GuiScreen parentScreen)
 	{
 		return new CaveConfigGui(parentScreen);
+	}
+
+	@Override
+	public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
+		return null;
 	}
 }

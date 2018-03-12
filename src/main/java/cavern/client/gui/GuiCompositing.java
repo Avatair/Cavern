@@ -27,15 +27,15 @@ public class GuiCompositing extends GuiContainer
 		this.ySize = 114 + inventoryRows * 18;
 	}
 
-	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks)
-	{
-		drawDefaultBackground();
-
-		super.drawScreen(mouseX, mouseY, partialTicks);
-
-		renderHoveredToolTip(mouseX, mouseY);
-	}
+//	@Override
+//	public void drawScreen(int mouseX, int mouseY, float partialTicks)
+//	{
+//		drawDefaultBackground();
+//
+//		super.drawScreen(mouseX, mouseY, partialTicks);
+//
+//		renderHoveredToolTip(mouseX, mouseY);
+//	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
