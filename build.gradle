@@ -1,0 +1,64 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+    }
+}
+
+plugins {
+    id "org.sonarqube" version "2.5"
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+
+version = "1.11.2-1.10.6"
+group = "cavern"
+archivesBaseName = "cavern"
+
+sourceCompatibility = targetCompatibility = "1.8"
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+
+minecraft {
+    version = "13.20.1.2386"
+    runDir = "run"
+    mappings = "stable_32"
+}
+
+dependencies {
+
+}
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    def task = from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    task
+        
+    // copy everything else except the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+// Add Access Transformers Manifest
+//jar {
+//    manifest {
+//        attributes 'FMLAT': 'cavern_at.cfg'
+//    }
+//   
+//    finalizedBy reobfJar
+//}
