@@ -177,6 +177,9 @@ public class Cavern
 
 		CaveBlocks.registerItemBlocks(registry);
 		CaveItems.registerItems(registry);
+		
+		CaveBlocks.registerOreDicts();
+		CaveItems.registerOreDicts();
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -231,9 +234,6 @@ public class Cavern
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		CaveBlocks.registerOreDicts();
-		CaveItems.registerOreDicts();
-
 		CaveItems.registerEquipments();
 
 		CaveBlocks.registerSmeltingRecipes();

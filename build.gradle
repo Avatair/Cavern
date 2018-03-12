@@ -1,7 +1,16 @@
 buildscript {
     repositories {
+        mavenCentral()
+        mavenLocal()
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
@@ -12,8 +21,40 @@ plugins {
     id "org.sonarqube" version "2.5"
 }
 
+apply plugin: 'maven'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+repositories {
+    mavenLocal()
+    maven {
+        name 'ForgeFS'
+        url 'http://files.minecraftforge.net/maven'
+    }
+    maven {
+        name 'CB Maven FS'
+        url "http://chickenbones.net/maven/"
+    }
+    maven {
+        name 'DVS1 Maven FS'
+        url 'http://dvs1.progwml6.com/files/maven'
+    }
+    maven {
+        name "ProfMobius Maven FS"
+        url "http://mobiusstrip.eu/maven"
+    }
+    maven { // TOP
+        name 'tterrag maven'
+        url "http://maven.tterrag.com/"
+    }
+    maven { // compatlayer
+        name 'K-4u maven'
+        url "http://maven.k-4u.nl/"
+    }
+    maven {
+        name 'forge'
+        url 'http://files.minecraftforge.net/maven'
+    }
+}
 
 version = "1.11.2-1.10.6"
 group = "cavern"
@@ -31,7 +72,10 @@ minecraft {
 }
 
 dependencies {
-
+    // you may put jars on which you depend on in ./libs
+    // or you may define them like so..
+    deobfCompile "slimeknights.mantle:Mantle:1.11.2-1.2.0.100"
+    deobfCompile "slimeknights:TConstruct:1.11.2-2.7.1.100"
 }
 
 processResources {
