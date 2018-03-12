@@ -175,7 +175,7 @@ public class CaveEntitySpawner
 
 												entity.setLocationAndAngles(posX, y, posZ, world.rand.nextFloat() * 360.0F, 0.0F);
 
-												Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, posX, y, posZ, false);
+												Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, posX, y, posZ);
 
 												if (canSpawn == Result.ALLOW || canSpawn == Result.DEFAULT && entity.getCanSpawnHere() && entity.isNotColliding())
 												{

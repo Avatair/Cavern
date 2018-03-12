@@ -37,7 +37,7 @@ public class CreativeTabCavern extends CreativeTabs
 			{
 				if (tab == this)
 				{
-					item.getSubItems(this, list);
+					item.getSubItems(item, this, list);
 				}
 			}
 		}
@@ -53,7 +53,7 @@ public class CreativeTabCavern extends CreativeTabs
 			{
 				if (tab == this)
 				{
-					item.getSubItems(this, list);
+					item.getSubItems(item, this, list);
 				}
 			}
 		}

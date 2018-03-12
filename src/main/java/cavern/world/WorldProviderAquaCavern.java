@@ -9,7 +9,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.chunk.IChunkGenerator;
 
 public class WorldProviderAquaCavern extends WorldProviderCavern
 {

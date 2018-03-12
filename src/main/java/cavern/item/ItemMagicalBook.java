@@ -34,7 +34,6 @@ import cavern.magic.MagicVenomBlast;
 import cavern.magic.MagicWarp;
 import cavern.stats.MagicianStats;
 import cavern.util.Roman;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -87,9 +86,9 @@ public class ItemMagicalBook extends Item
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
+	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> subItems)
 	{
-		if (!isInCreativeTab(tab))
+		if (getCreativeTab() != tab)
 		{
 			return;
 		}
@@ -169,7 +168,7 @@ public class ItemMagicalBook extends Item
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced)
 	{
 		EnumType type = EnumType.byItemStack(stack);
 

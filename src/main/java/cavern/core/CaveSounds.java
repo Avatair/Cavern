@@ -3,7 +3,7 @@ package cavern.core;
 import cavern.util.CaveUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.fml.common.registry.IForgeRegistry;
 
 public class CaveSounds
 {

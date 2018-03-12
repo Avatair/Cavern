@@ -452,7 +452,7 @@ public class CaveEventHooks
 					player.motionX *= motion;
 					player.motionZ *= motion;
 
-					if (player.collidedHorizontally && player.isOffsetPositionInLiquid(player.motionX, player.motionY + 0.6000000238418579D - player.posY + posY, player.motionZ))
+					if (player.isCollidedHorizontally && player.isOffsetPositionInLiquid(player.motionX, player.motionY + 0.6000000238418579D - player.posY + posY, player.motionZ))
 					{
 						player.motionY = 0.30000001192092896D;
 					}

@@ -1,5 +1,6 @@
 package cavern.entity.ai;
 
+import cavern.entity.EntityCavenicSkeleton;
 import cavern.item.ItemCavenicBow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -9,9 +10,9 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 
-public class EntityAIAttackCavenicBow<T extends EntityMob & IRangedAttackMob> extends EntityAIAttackRangedBow<T>
+public class EntityAIAttackCavenicBow extends EntityAIAttackRangedBow
 {
-	private final T attacker;
+	private final EntityCavenicSkeleton attacker;
 	private final double moveSpeedAmp;
 	private final float maxAttackDistance;
 	private final int attackSpeed;
@@ -24,7 +25,7 @@ public class EntityAIAttackCavenicBow<T extends EntityMob & IRangedAttackMob> ex
 	private boolean strafingBackwards;
 	private int strafingTime = -1;
 
-	public EntityAIAttackCavenicBow(T attacker, double speedAmplifier, float maxDistance, int attackSpeed)
+	public EntityAIAttackCavenicBow(EntityCavenicSkeleton attacker, double speedAmplifier, float maxDistance, int attackSpeed)
 	{
 		super(attacker, speedAmplifier, 0, maxDistance);
 		this.attacker = attacker;
@@ -115,7 +116,7 @@ public class EntityAIAttackCavenicBow<T extends EntityMob & IRangedAttackMob> ex
 
 			if (dist <= maxAttackDistance && seeTime >= 15)
 			{
-				attacker.getNavigator().clearPath();
+				attacker.getNavigator().clearPathEntity();
 				++strafingTime;
 			}
 			else

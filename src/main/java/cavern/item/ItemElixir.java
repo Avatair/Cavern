@@ -6,7 +6,6 @@ import cavern.api.IMagicianStats;
 import cavern.core.Cavern;
 import cavern.stats.MagicianRank;
 import cavern.stats.MagicianStats;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,9 +41,9 @@ public class ItemElixir extends Item
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
+	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> subItems)
 	{
-		if (!isInCreativeTab(tab))
+		if (getCreativeTab() != tab)
 		{
 			return;
 		}
@@ -129,7 +128,7 @@ public class ItemElixir extends Item
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced)
 	{
 		EnumType type = EnumType.byItemStack(stack);
 		int amount = type.getHealMPAmount();

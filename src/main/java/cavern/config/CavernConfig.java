@@ -591,7 +591,7 @@ public class CavernConfig
 
 		for (String name : manager.config.getCategoryNames())
 		{
-			if (NumberUtils.isCreatable(name))
+			if (NumberUtils.isNumber(name))
 			{
 				try
 				{

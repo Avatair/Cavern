@@ -11,7 +11,7 @@ import cavern.util.WeightedItemStack;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.BiomeProviderSingle;
-import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.chunk.IChunkGenerator;
 
 public class WorldProviderIceCavern extends WorldProviderCavern
 {

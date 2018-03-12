@@ -23,7 +23,7 @@ import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
@@ -421,11 +421,11 @@ public class ChunkGeneratorCaveland implements IChunkGenerator
 		return biome.getSpawnableList(creatureType);
 	}
 
-	@Override
-	public boolean isInsideStructure(World world, String structureName, BlockPos pos)
-	{
-		return false;
-	}
+//	@Override
+//	public boolean isInsideStructure(World world, String structureName, BlockPos pos)
+//	{
+//		return false;
+//	}
 
 	@Override
 	public BlockPos getNearestStructurePos(World world, String structureName, BlockPos pos, boolean findUnexplored)

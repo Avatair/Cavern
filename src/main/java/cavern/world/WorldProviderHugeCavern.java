@@ -4,7 +4,7 @@ import cavern.config.HugeCavernConfig;
 import cavern.config.manager.CaveBiomeManager;
 import cavern.config.property.ConfigBiomeType;
 import net.minecraft.world.DimensionType;
-import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.chunk.IChunkGenerator;
 
 public class WorldProviderHugeCavern extends WorldProviderCavern
 {

@@ -33,6 +33,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumFacing;
@@ -352,11 +353,11 @@ public class BlockPortalCavern extends BlockPortal
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list)
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list)
 	{
 		if (!isDimensionDisabled())
 		{
-			super.getSubBlocks(tab, list);
+			super.getSubBlocks(itemIn, tab, list);
 		}
 	}
 

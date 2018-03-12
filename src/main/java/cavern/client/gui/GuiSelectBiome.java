@@ -269,7 +269,7 @@ public class GuiSelectBiome extends GuiScreen
 
 				info.add(TextFormatting.GRAY + I18n.format(Config.LANG_KEY + "select.biome.info.fillerBlock") + ": " + text);
 
-				info.add(TextFormatting.GRAY + I18n.format(Config.LANG_KEY + "select.biome.info.temperature") + ": " + biome.getDefaultTemperature());
+				info.add(TextFormatting.GRAY + I18n.format(Config.LANG_KEY + "select.biome.info.temperature") + ": " + biome.getTemperature());
 				info.add(TextFormatting.GRAY + I18n.format(Config.LANG_KEY + "select.biome.info.rainfall") + ": " + biome.getRainfall());
 
 				if (BiomeDictionary.hasAnyType(biome))
@@ -508,7 +508,7 @@ public class GuiSelectBiome extends GuiScreen
 		}
 
 		@Override
-		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY, float partialTicks)
+		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY)
 		{
 			Biome biome = contents.get(slot, null);
 

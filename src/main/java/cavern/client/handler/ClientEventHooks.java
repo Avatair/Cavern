@@ -279,12 +279,12 @@ public class ClientEventHooks
 			{
 				if (mc.currentScreen != null && GuiDownloadCaveTerrain.class == mc.currentScreen.getClass())
 				{
-					event.setGui(new GuiLoadCaveTerrain());
+					event.setGui(new GuiLoadCaveTerrain(mc.getConnection()));
 				}
 			}
 			else if (GuiDownloadTerrain.class == gui.getClass())
 			{
-				event.setGui(new GuiDownloadCaveTerrain());
+				event.setGui(new GuiDownloadCaveTerrain(mc.getConnection()));
 			}
 		}
 	}

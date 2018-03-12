@@ -6,9 +6,10 @@ import org.lwjgl.util.glu.Project;
 import cavern.util.PanoramaPaths;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiDownloadTerrain;
-import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
@@ -29,9 +30,9 @@ public class GuiDownloadCaveTerrain extends GuiDownloadTerrain
 
 	public PanoramaPaths currentPanoramaPaths;
 
-	public GuiDownloadCaveTerrain()
+	public GuiDownloadCaveTerrain(NetHandlerPlayClient handler)
 	{
-		super();
+		super(handler);
 		this.mc = FMLClientHandler.instance().getClient();
 		this.viewportTexture = new DynamicTexture(256, 256);
 		this.panoramaBackground = mc.getTextureManager().getDynamicTextureLocation("background", viewportTexture);
@@ -55,7 +56,7 @@ public class GuiDownloadCaveTerrain extends GuiDownloadTerrain
 	private void drawPanorama(float ticks)
 	{
 		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder buffer = tessellator.getBuffer();
+		VertexBuffer buffer = tessellator.getBuffer();
 		GlStateManager.matrixMode(GL11.GL_PROJECTION);
 		GlStateManager.pushMatrix();
 		GlStateManager.loadIdentity();
@@ -142,7 +143,7 @@ public class GuiDownloadCaveTerrain extends GuiDownloadTerrain
 		GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 		GlStateManager.colorMask(true, true, true, false);
 		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder buffer = tessellator.getBuffer();
+		VertexBuffer buffer = tessellator.getBuffer();
 		buffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
 		GlStateManager.disableAlpha();
 		byte b0 = 3;
@@ -184,7 +185,7 @@ public class GuiDownloadCaveTerrain extends GuiDownloadTerrain
 		int k = width;
 		int l = height;
 		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder buffer = tessellator.getBuffer();
+		VertexBuffer buffer = tessellator.getBuffer();
 		buffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
 		buffer.pos(0.0D, l, 0.0D).tex(0.5F - f2, 0.5F + f3).color(1.0F, 1.0F, 1.0F, 1.0F).endVertex();
 		buffer.pos(k, l, 0.0D).tex(0.5F - f2, 0.5F - f3).color(1.0F, 1.0F, 1.0F, 1.0F).endVertex();

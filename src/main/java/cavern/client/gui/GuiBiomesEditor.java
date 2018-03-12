@@ -840,7 +840,7 @@ public class GuiBiomesEditor extends GuiScreen
 		}
 
 		@Override
-		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY, float partialTicks)
+		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY)
 		{
 			CaveBiome caveBiome = contents.get(slot, null);
 

@@ -149,7 +149,7 @@ public class Config
 			return null;
 		}
 
-		if (NumberUtils.isCreatable(str))
+		if (NumberUtils.isNumber(str))
 		{
 			int id = NumberUtils.toInt(str, -1);
 
@@ -180,7 +180,7 @@ public class Config
 
 		for (String str : biomes)
 		{
-			if (NumberUtils.isCreatable(str))
+			if (NumberUtils.isNumber(str))
 			{
 				if (NumberUtils.toInt(str, -1) == Biome.getIdForBiome(biome))
 				{

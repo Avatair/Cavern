@@ -85,7 +85,7 @@ public class BlockCave extends Block
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess blockAccess, BlockPos pos)
+	public MapColor getMapColor(IBlockState state)
 	{
 		return getType(state).getMapColor();
 	}
@@ -134,7 +134,7 @@ public class BlockCave extends Block
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list)
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list)
 	{
 		for (EnumType type : EnumType.VALUES)
 		{
@@ -171,7 +171,7 @@ public class BlockCave extends Block
 							{
 								NonNullList<ItemStack> items = NonNullList.create();
 
-								item.getSubItems(ObjectUtils.defaultIfNull(item.getCreativeTab(), CreativeTabs.SEARCH), items);
+								item.getSubItems(item, ObjectUtils.defaultIfNull(item.getCreativeTab(), CreativeTabs.SEARCH), items);
 
 								stack = CaveUtils.getRandomObject(items, ItemStack.EMPTY);
 							}

@@ -9,7 +9,6 @@ import cavern.entity.EntityRapidArrow;
 import cavern.entity.EntityTorchArrow;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -235,7 +234,7 @@ public class ItemCavenicBow extends ItemBow
 				entityArrow = arrow.createArrow(world, ammo, player);
 			}
 
-			entityArrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+			entityArrow.setAim(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 
 			if (f >= 1.0D || mode == BowMode.SNIPE && f >= 0.65D)
 			{
@@ -323,7 +322,7 @@ public class ItemCavenicBow extends ItemBow
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced)
 	{
 		tooltip.add(getBowModeMessage(stack).getUnformattedText());
 	}

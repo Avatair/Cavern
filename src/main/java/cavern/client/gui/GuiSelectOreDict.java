@@ -507,7 +507,7 @@ public class GuiSelectOreDict extends GuiScreen
 		}
 
 		@Override
-		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY, float partialTicks)
+		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY)
 		{
 			OreDictEntry entry = contents.get(slot, null);
 

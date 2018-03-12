@@ -35,6 +35,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.client.config.GuiButtonExt;
@@ -62,7 +63,7 @@ public class GuiSelectBlock extends GuiScreen
 
 			list.clear();
 
-			block.getSubBlocks(ObjectUtils.defaultIfNull(block.getCreativeTabToDisplayOn(), CreativeTabs.SEARCH), list);
+			block.getSubBlocks(Item.getItemFromBlock(block), ObjectUtils.defaultIfNull(block.getCreativeTabToDisplayOn(), CreativeTabs.SEARCH), list);
 
 			if (list.isEmpty())
 			{
@@ -725,7 +726,7 @@ public class GuiSelectBlock extends GuiScreen
 		}
 
 		@Override
-		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY, float partialTicks)
+		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY)
 		{
 			BlockMeta blockMeta = contents.get(slot, null);
 

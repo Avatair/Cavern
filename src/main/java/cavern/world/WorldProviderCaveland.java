@@ -6,7 +6,7 @@ import cavern.config.property.ConfigBiomeType;
 import cavern.core.CaveSounds;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DimensionType;
-import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.chunk.IChunkGenerator;
 
 public class WorldProviderCaveland extends WorldProviderCavern
 {

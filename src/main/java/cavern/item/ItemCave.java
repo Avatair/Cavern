@@ -44,9 +44,9 @@ public class ItemCave extends Item
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
+	public void getSubItems(Item item, CreativeTabs tab, NonNullList<ItemStack> subItems)
 	{
-		if (!isInCreativeTab(tab))
+		if (getCreativeTab() != tab)
 		{
 			return;
 		}

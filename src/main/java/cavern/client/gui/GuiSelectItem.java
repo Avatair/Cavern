@@ -59,7 +59,7 @@ public class GuiSelectItem extends GuiScreen
 
 			list.clear();
 
-			item.getSubItems(ObjectUtils.defaultIfNull(item.getCreativeTab(), CreativeTabs.SEARCH), list);
+			item.getSubItems(item, ObjectUtils.defaultIfNull(item.getCreativeTab(), CreativeTabs.SEARCH), list);
 
 			if (list.isEmpty())
 			{
@@ -595,7 +595,7 @@ public class GuiSelectItem extends GuiScreen
 		}
 
 		@Override
-		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY, float partialTicks)
+		protected void drawSlot(int slot, int par2, int par3, int par4, int mouseX, int mouseY)
 		{
 			ItemMeta itemMeta = contents.get(slot, null);
 
