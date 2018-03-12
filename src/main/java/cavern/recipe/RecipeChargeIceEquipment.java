@@ -7,10 +7,11 @@ import net.minecraft.block.BlockPackedIce;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
-import net.minecraftforge.registries.IForgeRegistryEntry;
+import net.minecraftforge.common.ForgeHooks;
 
-public class RecipeChargeIceEquipment extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe
+public class RecipeChargeIceEquipment /*extends IForgeRegistryEntry.Impl<IRecipe>*/ implements IRecipe
 {
 	private ItemStack resultItem = ItemStack.EMPTY;
 
@@ -127,10 +128,15 @@ public class RecipeChargeIceEquipment extends IForgeRegistryEntry.Impl<IRecipe> 
 		return resultItem.copy();
 	}
 
+//	@Override
+//	public boolean canFit(int width, int height)
+//	{
+//		return width * height > 1;
+//	}
+	
 	@Override
-	public boolean canFit(int width, int height)
-	{
-		return width * height > 1;
+	public int getRecipeSize() {
+		return 9;
 	}
 
 	@Override
@@ -140,8 +146,14 @@ public class RecipeChargeIceEquipment extends IForgeRegistryEntry.Impl<IRecipe> 
 	}
 
 	@Override
-	public boolean isDynamic()
-	{
-		return false;
-	}
+	public NonNullList<ItemStack> getRemainingItems(InventoryCrafting inv)
+ 	{
+ 		return ForgeHooks.defaultRecipeGetRemainingItems(inv);
+ 	}
+
+//	@Override
+//	public boolean isDynamic()
+//	{
+//		return false;
+//	}
 }

@@ -1,16 +1,10 @@
 package cavern.client.handler;
 
-import java.util.Iterator;
-import java.util.List;
-
 import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
-
 import cavern.api.CavernAPI;
 import cavern.api.IIceEquipment;
 import cavern.client.gui.GuiDownloadCaveTerrain;
 import cavern.client.gui.GuiLoadCaveTerrain;
-import cavern.client.gui.toasts.DelayedToast;
 import cavern.config.AquaCavernConfig;
 import cavern.config.CavelandConfig;
 import cavern.config.CaveniaConfig;
@@ -78,7 +72,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ClientEventHooks
 {
-	public static final List<DelayedToast> DELAYED_TOAST = Lists.newArrayList();
+//	public static final List<DelayedToast> DELAYED_TOAST = Lists.newArrayList();
 
 	@SubscribeEvent
 	public void onTick(ClientTickEvent event)
@@ -115,18 +109,18 @@ public class ClientEventHooks
 			Config.configChecker.setNotified(true);
 		}
 
-		if (!DELAYED_TOAST.isEmpty())
-		{
-			Iterator<DelayedToast> iterator = DELAYED_TOAST.iterator();
-
-			while (iterator.hasNext())
-			{
-				if (!iterator.next().onUpdate())
-				{
-					iterator.remove();
-				}
-			}
-		}
+//		if (!DELAYED_TOAST.isEmpty())
+//		{
+//			Iterator<DelayedToast> iterator = DELAYED_TOAST.iterator();
+//
+//			while (iterator.hasNext())
+//			{
+//				if (!iterator.next().onUpdate())
+//				{
+//					iterator.remove();
+//				}
+//			}
+//		}
 	}
 
 	@SubscribeEvent

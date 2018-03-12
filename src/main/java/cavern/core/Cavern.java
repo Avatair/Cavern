@@ -43,10 +43,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -203,32 +201,32 @@ public class Cavern
 		CaveEntityRegistry.registerEntities();
 	}
 
-	@SubscribeEvent
-	public void registerRecipes(RegistryEvent.Register<IRecipe> event)
-	{
-		IForgeRegistry<IRecipe> registry = event.getRegistry();
+//	@SubscribeEvent
+//	public void registerRecipes(RegistryEvent.Register<IRecipe> event)
+//	{
+//		IForgeRegistry<IRecipe> registry = event.getRegistry();
+//
+//		CaveItems.registerRecipes(registry);
+//	}
 
-		CaveItems.registerRecipes(registry);
-	}
+//	@SideOnly(Side.CLIENT)
+//	@SubscribeEvent
+//	public void registerBlockColors(ColorHandlerEvent.Block event)
+//	{
+//		BlockColors colors = event.getBlockColors();
+//
+//		CaveBlocks.registerBlockColors(colors);
+//	}
 
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void registerBlockColors(ColorHandlerEvent.Block event)
-	{
-		BlockColors colors = event.getBlockColors();
-
-		CaveBlocks.registerBlockColors(colors);
-	}
-
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void registerItemColors(ColorHandlerEvent.Item event)
-	{
-		ItemColors itemColors = event.getItemColors();
-		BlockColors blockColors = event.getBlockColors();
-
-		CaveBlocks.registerItemBlockColors(blockColors, itemColors);
-	}
+//	@SideOnly(Side.CLIENT)
+//	@SubscribeEvent
+//	public void registerItemColors(ColorHandlerEvent.Item event)
+//	{
+//		ItemColors itemColors = event.getItemColors();
+//		BlockColors blockColors = event.getBlockColors();
+//
+//		CaveBlocks.registerItemBlockColors(blockColors, itemColors);
+//	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event)
@@ -241,6 +239,8 @@ public class Cavern
 		CaveBlocks.registerSmeltingRecipes();
 		CaveItems.registerSmeltingRecipes();
 
+		CaveItems.registerRecipes();
+		
 		CompositingManager.registerRecipes(CavernAPI.compositing);
 
 		CaveEntityRegistry.addSpawns();
@@ -274,6 +274,16 @@ public class Cavern
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		if (event.getSide().isClient())
+		{
+			Minecraft mc = FMLClientHandler.instance().getClient();
+			BlockColors blockColors = mc.getBlockColors();
+			ItemColors colors = mc.getItemColors();
+
+			CaveBlocks.registerBlockColors(blockColors);
+			CaveBlocks.registerItemBlockColors(blockColors, colors);
+		}
+		
 		RuinsBlockData.init();
 	}
 

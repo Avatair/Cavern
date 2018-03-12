@@ -9,7 +9,6 @@ import cavern.network.client.MagicInfinityMessage;
 import cavern.network.client.MagicianStatsAdjustMessage;
 import cavern.network.client.MinerStatsAdjustMessage;
 import cavern.network.client.RegenerationGuiMessage;
-import cavern.network.client.ToastMessage;
 import cavern.network.server.MagicExecuteMessage;
 import cavern.network.server.MagicFlyingMessage;
 import cavern.network.server.MagicInvisibleMessage;
@@ -66,7 +65,7 @@ public class CaveNetworkRegistry
 		registerMessage(LastMineMessage.class, LastMineMessage.class, Side.CLIENT);
 		registerMessage(CaveMusicMessage.class, CaveMusicMessage.class, Side.CLIENT);
 		registerMessage(RegenerationGuiMessage.class, RegenerationGuiMessage.class, Side.CLIENT);
-		registerMessage(ToastMessage.class, ToastMessage.class, Side.CLIENT);
+//		registerMessage(ToastMessage.class, ToastMessage.class, Side.CLIENT);
 		registerMessage(ExplosionEffectMessage.class, ExplosionEffectMessage.class, Side.CLIENT);
 		registerMessage(MagicInfinityMessage.class, MagicInfinityMessage.class, Side.CLIENT);
 

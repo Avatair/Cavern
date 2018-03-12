@@ -186,10 +186,10 @@ public class MinerStats implements IMinerStats
 					default:
 				}
 
-				if (current.getRank() >= MiningAssistConfig.minerRank.getValue())
-				{
-					CaveUtils.grantToast(player, "mining_assist");
-				}
+//				if (current.getRank() >= MiningAssistConfig.minerRank.getValue())
+//				{
+//					CaveUtils.grantToast(player, "mining_assist");
+//				}
 			}
 
 			MinecraftForge.EVENT_BUS.post(new MinerStatsEvent.PromoteRank(entityPlayer, this));

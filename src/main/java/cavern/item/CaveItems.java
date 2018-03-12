@@ -25,6 +25,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.IForgeRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -279,38 +280,38 @@ public class CaveItems
 		MAGICAL_ITEMS.add(MANALITE_BOW);
 	}
 
-	public static void registerRecipes(IForgeRegistry<IRecipe> registry)
+	public static void registerRecipes()
 	{
-		registry.register(RecipeHelper.getSwordRecipe("ice_sword",
+		GameRegistry.addRecipe(RecipeHelper.getSwordRecipe(/*"ice_sword",*/
 			IceEquipment.getChargedItem(ICE_SWORD, 3), new ItemStack(Blocks.ICE), "stickIce"));
-		registry.register(RecipeHelper.getPickaxeRecipe("ice_pickaxe",
+		GameRegistry.addRecipe(RecipeHelper.getPickaxeRecipe(/*"ice_pickaxe",*/
 			IceEquipment.getChargedItem(ICE_PICKAXE, 4), new ItemStack(Blocks.ICE), "stickIce"));
-		registry.register(RecipeHelper.getAxeRecipe("ice_axe",
+		GameRegistry.addRecipe(RecipeHelper.getAxeRecipe(/*"ice_axe",*/
 			IceEquipment.getChargedItem(ICE_AXE, 4), new ItemStack(Blocks.ICE), "stickIce"));
-		registry.register(RecipeHelper.getShovelRecipe("ice_shovel",
+		GameRegistry.addRecipe(RecipeHelper.getShovelRecipe(/*"ice_shovel",*/
 			IceEquipment.getChargedItem(ICE_SHOVEL, 2), new ItemStack(Blocks.ICE), "stickIce"));
-		registry.register(RecipeHelper.getHoeRecipe("ice_hoe",
+		GameRegistry.addRecipe(RecipeHelper.getHoeRecipe(/*"ice_hoe",*/
 			IceEquipment.getChargedItem(ICE_HOE, 3), new ItemStack(Blocks.ICE), "stickIce"));
 
-		registry.register(RecipeHelper.getSwordRecipe("ice_sword", "ice_sword_packed",
+		GameRegistry.addRecipe(RecipeHelper.getSwordRecipe(/*"ice_sword", "ice_sword_packed",*/
 			IceEquipment.getChargedItem(ICE_SWORD, 19), new ItemStack(Blocks.PACKED_ICE), "stickIce"));
-		registry.register(RecipeHelper.getPickaxeRecipe("ice_pickaxe", "ice_pickaxe_packed",
+		GameRegistry.addRecipe(RecipeHelper.getPickaxeRecipe(/*"ice_pickaxe", "ice_pickaxe_packed",*/
 			IceEquipment.getChargedItem(ICE_PICKAXE, 28), new ItemStack(Blocks.PACKED_ICE), "stickIce"));
-		registry.register(RecipeHelper.getAxeRecipe("ice_axe", "ice_axe_packed",
+		GameRegistry.addRecipe(RecipeHelper.getAxeRecipe(/*"ice_axe", "ice_axe_packed",*/
 			IceEquipment.getChargedItem(ICE_AXE, 28), new ItemStack(Blocks.PACKED_ICE), "stickIce"));
-		registry.register(RecipeHelper.getShovelRecipe("ice_shovel", "ice_shovel_packed",
+		GameRegistry.addRecipe(RecipeHelper.getShovelRecipe(/*"ice_shovel", "ice_shovel_packed",*/
 			IceEquipment.getChargedItem(ICE_SHOVEL, 10), new ItemStack(Blocks.PACKED_ICE), "stickIce"));
-		registry.register(RecipeHelper.getHoeRecipe("ice_hoe", "ice_hoe_packed",
+		GameRegistry.addRecipe(RecipeHelper.getHoeRecipe(/*"ice_hoe", "ice_hoe_packed",*/
 			IceEquipment.getChargedItem(ICE_HOE, 19), new ItemStack(Blocks.PACKED_ICE), "stickIce"));
 
-		registry.register(RecipeHelper.getBowRecipe("ice_bow",
+		GameRegistry.addRecipe(RecipeHelper.getBowRecipe(/*"ice_bow",*/
 			IceEquipment.getChargedItem(ICE_BOW, 1), ItemCave.EnumType.ICE_STICK.getItemStack()));
-		registry.register(RecipeHelper.getSmallSurroundRecipe("ice_bow", "ice_bow_normal",
+		GameRegistry.addRecipe(RecipeHelper.getSmallSurroundRecipe(/*"ice_bow", "ice_bow_normal",*/
 			IceEquipment.getChargedItem(ICE_BOW, 4), new ItemStack(Items.BOW, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Blocks.ICE)));
-		registry.register(RecipeHelper.getSmallSurroundRecipe("ice_bow", "ice_bow_packed",
+		GameRegistry.addRecipe(RecipeHelper.getSmallSurroundRecipe(/*"ice_bow", "ice_bow_packed",*/
 			IceEquipment.getChargedItem(ICE_BOW, 36), new ItemStack(Items.BOW, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Blocks.PACKED_ICE)));
 
-		registry.register(RecipeHelper.getRecipe("charge_ice_equip", new RecipeChargeIceEquipment()));
+		GameRegistry.addRecipe(RecipeHelper.getRecipe(/*"charge_ice_equip",*/ new RecipeChargeIceEquipment()));
 	}
 
 	public static void registerSmeltingRecipes()

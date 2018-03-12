@@ -467,15 +467,15 @@ public class CaveUtils
 		return advancement != null && player.getAdvancements().grantCriterion(advancement, criterion);
 	}
 
-	public static boolean grantToast(EntityPlayer player, String key)
-	{
-		if (grantCriterion(player, "toasts/" + key, key))
-		{
-			CaveNetworkRegistry.sendTo(new ToastMessage(key), (EntityPlayerMP)player);
-
-			return true;
-		}
-
-		return false;
-	}
+//	public static boolean grantToast(EntityPlayer player, String key)
+//	{
+//		if (grantCriterion(player, "toasts/" + key, key))
+//		{
+//			CaveNetworkRegistry.sendTo(new ToastMessage(key), (EntityPlayerMP)player);
+//
+//			return true;
+//		}
+//
+//		return false;
+//	}
 }
