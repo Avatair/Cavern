@@ -5,6 +5,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import cavern.api.IHunterStats;
 import cavern.api.event.HunterStatsEvent;
 import cavern.capability.CaveCapabilities;
+import cavern.core.CaveAchievements;
 import cavern.core.CaveSounds;
 import cavern.network.CaveNetworkRegistry;
 import cavern.network.client.HunterStatsAdjustMessage;
@@ -138,16 +139,20 @@ public class HunterStats implements IHunterStats
 				switch (current)
 				{
 					case HUNTER:
-						CaveUtils.grantCriterion(player, "cavenia/hunter", "hunter");
+//						CaveUtils.grantCriterion(player, "cavenia/hunter", "hunter");
+						player.addStat(CaveAchievements.HUNTER);
 						break;
 					case CRAZY_HUNTER:
-						CaveUtils.grantCriterion(player, "cavenia/crazy_hunter", "crazy_hunter");
+//						CaveUtils.grantCriterion(player, "cavenia/crazy_hunter", "crazy_hunter");
+						player.addStat(CaveAchievements.CRAZY_HUNTER);
 						break;
 					case RANGER:
-						CaveUtils.grantCriterion(player, "cavenia/ranger", "ranger");
+//						CaveUtils.grantCriterion(player, "cavenia/ranger", "ranger");
+						player.addStat(CaveAchievements.CRAZY_HUNTER);
 						break;
 					case CRAZY_RANGER:
-						CaveUtils.grantCriterion(player, "cavenia/crazy_ranger", "crazy_ranger");
+//						CaveUtils.grantCriterion(player, "cavenia/crazy_ranger", "crazy_ranger");
+						player.addStat(CaveAchievements.CRAZY_RANGER);
 						break;
 					default:
 				}

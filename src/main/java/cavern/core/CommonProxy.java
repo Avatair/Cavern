@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.stats.Achievement;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
@@ -32,5 +33,10 @@ public class CommonProxy
 		}
 
 		return 0.0F;
+	}
+	
+	public boolean hasAchievementClient(EntityPlayer player, Achievement achievement)
+	{
+		return false;
 	}
 }

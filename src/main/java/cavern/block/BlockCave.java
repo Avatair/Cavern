@@ -8,6 +8,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import com.google.common.collect.Lists;
 
 import cavern.block.bonus.FissureBreakEvent;
+import cavern.core.CaveAchievements;
 import cavern.core.Cavern;
 import cavern.item.CaveItems;
 import cavern.item.ItemCave;
@@ -194,7 +195,8 @@ public class BlockCave extends Block
 
 					if (player != null)
 					{
-						CaveUtils.grantAdvancement(player, "mine_randomite");
+//						CaveUtils.grantAdvancement(player, "mine_randomite");
+						player.addStat(CaveAchievements.RANDOMITE);
 					}
 
 					break;
@@ -214,7 +216,8 @@ public class BlockCave extends Block
 
 					if (player != null)
 					{
-						CaveUtils.grantAdvancement(player, "mine_fissure");
+//						CaveUtils.grantAdvancement(player, "mine_fissure");
+						player.addStat(CaveAchievements.FISSURE);
 					}
 
 					break;

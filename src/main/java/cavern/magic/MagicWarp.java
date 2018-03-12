@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import cavern.core.CaveAchievements;
 import cavern.core.CaveSounds;
 import cavern.util.CaveUtils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -169,7 +170,8 @@ public class MagicWarp implements IMagic
 
 			setWarpPoint(stack, null, type);
 
-			CaveUtils.grantAdvancement(player, "magic_warp");
+//			CaveUtils.grantAdvancement(player, "magic_warp");
+			player.addStat(CaveAchievements.MAGIC_WARP);
 		}
 		else
 		{

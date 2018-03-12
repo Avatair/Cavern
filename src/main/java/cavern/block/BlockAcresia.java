@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 
+import cavern.core.CaveAchievements;
 import cavern.core.Cavern;
 import cavern.item.ItemAcresia;
 import cavern.util.CaveUtils;
@@ -225,7 +226,8 @@ public class BlockAcresia extends BlockCrops
 
 					drop.playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1.0F, 1.25F);
 
-					CaveUtils.grantAdvancement(player, "harvest_acresia");
+//					CaveUtils.grantAdvancement(player, "harvest_acresia");
+					player.addStat(CaveAchievements.ACRESIA);
 				}
 
 				return true;

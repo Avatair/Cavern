@@ -5,6 +5,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import cavern.api.IMagicianStats;
 import cavern.api.event.MagicianStatsEvent;
 import cavern.capability.CaveCapabilities;
+import cavern.core.CaveAchievements;
 import cavern.core.CaveSounds;
 import cavern.network.CaveNetworkRegistry;
 import cavern.network.client.MagicInfinityMessage;
@@ -150,13 +151,16 @@ public class MagicianStats implements IMagicianStats
 				switch (current)
 				{
 					case MAGICIAN:
-						CaveUtils.grantAdvancement(player, "magician");
+//						CaveUtils.grantAdvancement(player, "magician");
+						player.addStat(CaveAchievements.MAGICIAN);
 						break;
 					case MAGE:
-						CaveUtils.grantAdvancement(player, "mage");
+//						CaveUtils.grantAdvancement(player, "mage");
+						player.addStat(CaveAchievements.MAGE);
 						break;
 					case GRAND_MAGE:
-						CaveUtils.grantAdvancement(player, "grand_mage");
+//						CaveUtils.grantAdvancement(player, "grand_mage");
+						player.addStat(CaveAchievements.GRAND_MAGE);
 						break;
 					default:
 				}

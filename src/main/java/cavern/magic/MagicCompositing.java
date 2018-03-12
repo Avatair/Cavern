@@ -8,6 +8,7 @@ import cavern.api.CavernAPI;
 import cavern.api.ICompositingRecipe;
 import cavern.api.IMagicianStats;
 import cavern.api.event.PlayerCompositedEvent;
+import cavern.core.CaveAchievements;
 import cavern.core.CaveSounds;
 import cavern.core.Cavern;
 import cavern.item.InventoryEquipment;
@@ -185,7 +186,8 @@ public class MagicCompositing implements IMagic
 
 		soundType = 0;
 
-		CaveUtils.grantAdvancement(player, "magic_compositing");
+		// CaveUtils.grantAdvancement(player, "magic_compositing");
+		player.addStat(CaveAchievements.MAGIC_COMPOSITING);
 
 		return true;
 	}

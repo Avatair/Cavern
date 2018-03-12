@@ -269,6 +269,8 @@ public class Cavern
 		HugeCavernConfig.syncVeinsConfig();
 
 		CaveType.registerDimensions();
+		
+		CaveAchievements.registerAchievements();
 	}
 
 	@EventHandler

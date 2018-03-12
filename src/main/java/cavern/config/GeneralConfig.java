@@ -8,14 +8,15 @@ import cavern.client.config.CaveConfigEntries;
 import cavern.config.property.ConfigCaveborn;
 import cavern.config.property.ConfigItems;
 import cavern.config.property.ConfigMiningPoints;
+import cavern.core.CaveAchievements;
 import cavern.core.Cavern;
 import cavern.util.CaveUtils;
-import net.minecraft.advancements.Advancement;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -252,31 +253,45 @@ public class GeneralConfig
 		}
 	}
 
-	public static boolean canEscapeFromCaves(EntityPlayer entityPlayer)
+	public static boolean canEscapeFromCaves(EntityPlayer player)
 	{
 		if (!cavernEscapeMission)
 		{
 			return true;
 		}
 
-		if (entityPlayer == null || !(entityPlayer instanceof EntityPlayerMP))
+		if (player == null)
 		{
 			return false;
 		}
 
-		EntityPlayerMP player = (EntityPlayerMP)entityPlayer;
-
-		for (Advancement advancement : player.mcServer.getAdvancementManager().getAdvancements())
+		if (player.world.isRemote)
 		{
-			if (Cavern.MODID.equals(advancement.getId().getResourceDomain()) && !advancement.getId().getResourcePath().startsWith("cavenia"))
+			for (Achievement achievement : CaveAchievements.ESCAPE_ACHIEVEMENTS)
 			{
-				if (!player.getAdvancements().getProgress(advancement).isDone())
+				if (!Cavern.proxy.hasAchievementClient(player, achievement))
 				{
 					return false;
 				}
 			}
+
+			return true;
+		}
+		else if (player instanceof EntityPlayerMP)
+		{
+			EntityPlayerMP thePlayer = (EntityPlayerMP)player;
+
+			for (Achievement achievement : CaveAchievements.ESCAPE_ACHIEVEMENTS)
+			{
+				if (!thePlayer.getStatFile().hasAchievementUnlocked(achievement))
+				{
+					return false;
+				}
+			}
+
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 }

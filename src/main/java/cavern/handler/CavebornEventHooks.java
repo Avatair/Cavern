@@ -8,6 +8,7 @@ import cavern.block.BlockPortalCavern;
 import cavern.config.GeneralConfig;
 import cavern.config.RuinsCavernConfig;
 import cavern.config.property.ConfigCaveborn;
+import cavern.core.CaveAchievements;
 import cavern.util.CaveUtils;
 import cavern.util.ItemMeta;
 import cavern.world.CaveType;
@@ -111,16 +112,31 @@ public class CavebornEventHooks
 
 		FIRST_PLAYERS.remove(event.player.getCachedUniqueIdString());
 
-		if (type == CaveType.DIM_CAVERN)
-		{
-			CaveUtils.grantCriterion(player, "root", "entered_cavern");
-		}
-		else
-		{
-			String name = type.getName();
+//		if (type == CaveType.DIM_CAVERN)
+//		{
+//			CaveUtils.grantCriterion(player, "root", "entered_cavern");
+//		}
+//		else
+//		{
+//			String name = type.getName();
+//
+//			CaveUtils.grantCriterion(player, "enter_the_" + name, "entered_" + name);
+//		}
+		if( type == CaveType.DIM_CAVERN )
+			player.addStat(CaveAchievements.CAVERN);
+		else if( type == CaveType.DIM_RUINS_CAVERN )
+			player.addStat(CaveAchievements.RUINS_CAVERN);
+		else if( type == CaveType.DIM_AQUA_CAVERN )
+			player.addStat(CaveAchievements.AQUA_CAVERN);
+		else if( type == CaveType.DIM_CAVELAND )
+			player.addStat(CaveAchievements.CAVELAND);
+		else if( type == CaveType.DIM_ICE_CAVERN )
+			player.addStat(CaveAchievements.ICE_CAVERN);
+		else if( type == CaveType.DIM_CAVENIA )
+			player.addStat(CaveAchievements.CAVENIA);
+		else if( type == CaveType.DIM_HUGE_CAVERN )
+			player.addStat(CaveAchievements.HUGE_CAVERN);
 
-			CaveUtils.grantCriterion(player, "enter_the_" + name, "entered_" + name);
-		}
 
 		BlockPos pos = player.getPosition();
 

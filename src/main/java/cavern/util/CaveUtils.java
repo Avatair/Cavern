@@ -24,8 +24,6 @@ import com.google.common.collect.Maps;
 
 import cavern.core.Cavern;
 import cavern.network.CaveNetworkRegistry;
-import cavern.network.client.ToastMessage;
-import net.minecraft.advancements.Advancement;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.state.IBlockState;
@@ -36,9 +34,11 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayer.SleepResult;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
@@ -157,6 +157,27 @@ public class CaveUtils
 		}
 
 		return stateA.getBlock() == stateB.getBlock() && stateA.getBlock().getMetaFromState(stateA) == stateB.getBlock().getMetaFromState(stateB);
+	}
+	
+	public static ItemStack getSpawnEgg(ResourceLocation entityName)
+	{
+		ItemStack item = new ItemStack(Items.SPAWN_EGG);
+		NBTTagCompound nbt = new NBTTagCompound();
+		NBTTagCompound tag = new NBTTagCompound();
+
+		tag.setString("id", entityName.toString());
+		nbt.setTag("EntityTag", tag);
+
+		item.setTagCompound(nbt);
+
+		return item;
+	}
+
+	public static ItemStack getSpawnEgg(Class<? extends Entity> entityClass)
+	{
+		ResourceLocation entityName = EntityList.getKey(entityClass);
+
+		return getSpawnEgg(entityName);
 	}
 
 	@Nullable
@@ -449,23 +470,23 @@ public class CaveUtils
 		player.renderOffsetZ = -1.8F * facing.getFrontOffsetZ();
 	}
 
-	public static boolean grantAdvancement(EntityPlayer entityPlayer, String key)
-	{
-		return grantCriterion(entityPlayer, key, key);
-	}
+//	public static boolean grantAdvancement(EntityPlayer entityPlayer, String key)
+//	{
+//		return grantCriterion(entityPlayer, key, key);
+//	}
 
-	public static boolean grantCriterion(EntityPlayer entityPlayer, String key, String criterion)
-	{
-		if (entityPlayer == null || !(entityPlayer instanceof EntityPlayerMP))
-		{
-			return false;
-		}
-
-		EntityPlayerMP player = (EntityPlayerMP)entityPlayer;
-		Advancement advancement = player.mcServer.getAdvancementManager().getAdvancement(getKey(key));
-
-		return advancement != null && player.getAdvancements().grantCriterion(advancement, criterion);
-	}
+//	public static boolean grantCriterion(EntityPlayer entityPlayer, String key, String criterion)
+//	{
+//		if (entityPlayer == null || !(entityPlayer instanceof EntityPlayerMP))
+//		{
+//			return false;
+//		}
+//
+//		EntityPlayerMP player = (EntityPlayerMP)entityPlayer;
+//		Advancement advancement = player.mcServer.getAdvancementManager().getAdvancement(getKey(key));
+//
+//		return advancement != null && player.getAdvancements().grantCriterion(advancement, criterion);
+//	}
 
 //	public static boolean grantToast(EntityPlayer player, String key)
 //	{

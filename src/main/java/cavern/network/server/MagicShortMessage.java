@@ -34,7 +34,7 @@ public class MagicShortMessage implements IPlayerMessage<MagicShortMessage, IMes
 	{
 		player.attackEntityFrom(CaveDamageSources.EXHAUST_MP, damage);
 
-		CaveUtils.grantAdvancement(player, "short_mp");
+		// CaveUtils.grantAdvancement(player, "short_mp");
 
 		return null;
 	}

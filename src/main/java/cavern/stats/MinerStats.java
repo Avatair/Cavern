@@ -13,6 +13,7 @@ import cavern.api.IMinerStats;
 import cavern.api.event.MinerStatsEvent;
 import cavern.capability.CaveCapabilities;
 import cavern.config.MiningAssistConfig;
+import cavern.core.CaveAchievements;
 import cavern.core.CaveSounds;
 import cavern.miningassist.MiningAssist;
 import cavern.network.CaveNetworkRegistry;
@@ -171,17 +172,19 @@ public class MinerStats implements IMinerStats
 
 				switch (current)
 				{
-					case IRON_MINER:
-						CaveUtils.grantAdvancement(player, "iron_miner");
+					case MAGNITE_MINER:
+						player.addStat(CaveAchievements.MAGNITE_MINER);
 						break;
 					case GOLD_MINER:
-						CaveUtils.grantAdvancement(player, "gold_miner");
+//						CaveUtils.grantAdvancement(player, "gold_miner");
+						player.addStat(CaveAchievements.GOLD_MINER);
 						break;
-					case HEXCITE_MINER:
-						CaveUtils.grantAdvancement(player, "hexcite_miner");
+					case AQUA_MINER:
+						player.addStat(CaveAchievements.AQUA_MINER);
 						break;
 					case DIAMOND_MINER:
-						CaveUtils.grantAdvancement(player, "diamond_miner");
+//						CaveUtils.grantAdvancement(player, "diamond_miner");
+						player.addStat(CaveAchievements.DIAMOND_MINER);
 						break;
 					default:
 				}

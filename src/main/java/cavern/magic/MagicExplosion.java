@@ -1,5 +1,6 @@
 package cavern.magic;
 
+import cavern.core.CaveAchievements;
 import cavern.core.Cavern;
 import cavern.util.CaveUtils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -78,6 +79,7 @@ public class MagicExplosion implements IMagic
 
 		MagicalExplosion.createExplosion(world, player, pos.getX() + 0.5D, pos.getY() + 0.25D, pos.getZ() + 0.5D, 3.0F + 2.5F * getMagicLevel(), grief);
 
-		CaveUtils.grantAdvancement(player, "magic_explosion");
+//		CaveUtils.grantAdvancement(player, "magic_explosion");
+		player.addStat(CaveAchievements.MAGIC_EXPLOSION);
 	}
 }

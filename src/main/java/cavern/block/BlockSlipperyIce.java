@@ -1,5 +1,6 @@
 package cavern.block;
 
+import cavern.core.CaveAchievements;
 import cavern.core.Cavern;
 import cavern.util.CaveUtils;
 import net.minecraft.block.BlockPackedIce;
@@ -29,7 +30,8 @@ public class BlockSlipperyIce extends BlockPackedIce
 
 		if (!world.isRemote && entity.ticksExisted % 20 == 0 && entity instanceof EntityPlayer)
 		{
-			CaveUtils.grantAdvancement((EntityPlayer)entity, "slip_ice");
+//			CaveUtils.grantAdvancement((EntityPlayer)entity, "slip_ice");
+			((EntityPlayer)entity).addStat(CaveAchievements.SLIP_ICE);
 		}
 	}
 

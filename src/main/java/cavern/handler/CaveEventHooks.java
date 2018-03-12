@@ -21,6 +21,7 @@ import cavern.block.BlockPortalCavern;
 import cavern.block.BlockSaplingPerverted;
 import cavern.block.CaveBlocks;
 import cavern.config.GeneralConfig;
+import cavern.core.CaveAchievements;
 import cavern.core.CaveSounds;
 import cavern.item.IAquaTool;
 import cavern.item.IceEquipment;
@@ -202,16 +203,31 @@ public class CaveEventHooks
 
 			playerData.setLastTeleportTime(type, world.getTotalWorldTime());
 
-			if (type == CaveType.DIM_CAVENIA)
-			{
-				CaveUtils.grantCriterion(player, "cavenia/root", "entered_cavenia");
-			}
-			else if (type != CaveType.DIM_CAVERN)
-			{
-				String suffix = type.getSuffix();
-
-				CaveUtils.grantCriterion(player, "enter_the" + suffix, "entered" + suffix);
-			}
+//			if (type == CaveType.DIM_CAVENIA)
+//			{
+//				CaveUtils.grantCriterion(player, "cavenia/root", "entered_cavenia");
+//			}
+//			else if (type != CaveType.DIM_CAVERN)
+//			{
+//				String suffix = type.getSuffix();
+//
+//				CaveUtils.grantCriterion(player, "enter_the" + suffix, "entered" + suffix);
+//			}
+			
+			if( type == CaveType.DIM_CAVERN )
+				player.addStat(CaveAchievements.CAVERN);
+			else if( type == CaveType.DIM_RUINS_CAVERN )
+				player.addStat(CaveAchievements.RUINS_CAVERN);
+			else if( type == CaveType.DIM_AQUA_CAVERN )
+				player.addStat(CaveAchievements.AQUA_CAVERN);
+			else if( type == CaveType.DIM_CAVELAND )
+				player.addStat(CaveAchievements.CAVELAND);
+			else if( type == CaveType.DIM_ICE_CAVERN )
+				player.addStat(CaveAchievements.ICE_CAVERN);
+			else if( type == CaveType.DIM_CAVENIA )
+				player.addStat(CaveAchievements.CAVENIA);
+			else if( type == CaveType.DIM_HUGE_CAVERN )
+				player.addStat(CaveAchievements.HUGE_CAVERN);
 		}
 	}
 
@@ -644,7 +660,8 @@ public class CaveEventHooks
 
 				if (charge > 0)
 				{
-					CaveUtils.grantAdvancement(player, "ice_charge");
+//					CaveUtils.grantAdvancement(player, "ice_charge");
+					player.addStat(CaveAchievements.ICE_CHARGE);
 				}
 			}
 		}

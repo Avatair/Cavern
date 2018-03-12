@@ -2,6 +2,7 @@ package cavern.magic;
 
 import javax.annotation.Nullable;
 
+import cavern.core.CaveAchievements;
 import cavern.core.CaveSounds;
 import cavern.core.Cavern;
 import cavern.entity.EntitySummonCavenicSkeleton;
@@ -217,7 +218,8 @@ public class MagicSummon implements IMagic
 
 		if (world.spawnEntity(entity))
 		{
-			CaveUtils.grantAdvancement(player, "magic_summon");
+//			CaveUtils.grantAdvancement(player, "magic_summon");
+			player.addStat(CaveAchievements.SUMMONER);
 		}
 	}
 }

@@ -3,6 +3,7 @@ package cavern.magic;
 import java.util.Random;
 
 import cavern.api.ISummonMob;
+import cavern.core.CaveAchievements;
 import cavern.util.CaveUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityOwnable;
@@ -130,7 +131,8 @@ public class MagicFlameBreath implements IMagic
 				player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 10 * level * 20, 0, false, false));
 			}
 
-			CaveUtils.grantAdvancement(player, "magic_flame_breath");
+//			CaveUtils.grantAdvancement(player, "magic_flame_breath");
+			player.addStat(CaveAchievements.MAGIC_FLAME_BREATH);
 
 			return true;
 		}

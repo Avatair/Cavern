@@ -2,6 +2,7 @@ package cavern.network.server;
 
 import cavern.api.IMineBonus;
 import cavern.config.GeneralConfig;
+import cavern.core.CaveAchievements;
 import cavern.stats.MinerStats;
 import cavern.util.CaveUtils;
 import io.netty.buffer.ByteBuf;
@@ -46,7 +47,8 @@ public class MineBonusMessage implements IPlayerMessage<MineBonusMessage, IMessa
 
 			if (combo >= 50)
 			{
-				CaveUtils.grantAdvancement(player, "good_mine");
+//				CaveUtils.grantAdvancement(player, "good_mine");
+				player.addStat(CaveAchievements.GOOD_MINE);
 			}
 		}
 
