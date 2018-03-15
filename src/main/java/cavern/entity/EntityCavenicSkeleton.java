@@ -39,7 +39,7 @@ public class EntityCavenicSkeleton extends EntitySkeleton implements ICavenicMob
 
 	protected void initCustomAI()
 	{
-		aiArrowAttack = new EntityAIAttackCavenicBow(this, 0.975D, 5.0F, 4);
+		aiArrowAttack = new EntityAIAttackCavenicBow(this, 0.975D, 5.0F, 16);
 		aiAttackOnCollide = new EntityAIAttackMelee(this, 1.25D, false)
 		{
 			@Override
